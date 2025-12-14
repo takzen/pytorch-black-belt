@@ -1,144 +1,144 @@
 # 🥋 PyTorch Black Belt
 
-> **From `import torch` to Engineering Mastery.**
-> A collection of 101 notebooks designed to bridge the gap between "running a model" and understanding the engine underneath.
+> **Od `import torch` do Mistrzostwa Inżynierskiego.**
+> Kompleksowa kolekcja notebooków zaprojektowanych, aby wypełnić lukę między "uruchomieniem modelu" a zrozumieniem mechanizmu pod maską.
 
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white) ![Status](https://img.shields.io/badge/Status-Active_Development-success?style=for-the-badge)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white) ![Status](https://img.shields.io/badge/Status-Aktywny_Rozwój-success?style=for-the-badge)
 
-## 🎯 The Goal
+## 🎯 Cel
 
-Most tutorials stop at `model.fit()`. This repository starts where they end.
-**PyTorch Black Belt** is about understanding the "why" and "how":
+Większość tutoriali kończy się na `model.fit()`. To repozytorium zaczyna tam, gdzie one kończą.
+**PyTorch Black Belt** to zrozumienie "dlaczego" i "jak":
 
-- Why does `.view()` throw errors on non-contiguous tensors?
-- How do you write a custom Backward pass for a new operation?
-- How to debug silent failures that don't throw exceptions but ruin training?
-- How to optimize data pipelines when GPU utilization is low?
+- Dlaczego `.view()` rzuca błędy na nieciągłych tensorach?
+- Jak napisać własne przejście wsteczne (Backward) dla nowej operacji?
+- Jak debugować ciche awarie, które nie rzucają wyjątków, ale rujnują trening?
+- Jak zoptymalizować potoki danych, gdy wykorzystanie GPU jest niskie?
 
-## 📚 Curriculum: The Path to Mastery
+## 📚 Program nauczania: Ścieżka do Mistrzostwa
 
-### 🏗️ Module 1: Tensors Deep Dive (Foundations)
+### 🗝️ Moduł 1: Głębokie zanurzenie w Tensory (Fundamenty)
 
-_You can't master the model if you don't master the data structure._
+_Nie opanujesz modelu, jeśli nie opanujesz struktury danych._
 
-- **Broadcasting Dojo:** The math behind dimension expansion.
-- **Strides & Memory:** Understanding `storage()`, `view()` vs `reshape()`, and `contiguous()`.
-- **Einsum:** The magical function to replace complex matrix ops.
-- **In-place Operations:** When `x += 1` saves memory and when it breaks Autograd.
+- **Dojo Broadcastingu:** Matematyka stojąca za rozszerzaniem wymiarów.
+- **Kroki i Pamięć:** Zrozumienie `storage()`, `view()` vs `reshape()` oraz `contiguous()`.
+- **Einsum:** Magiczna funkcja zastępująca złożone operacje macierzowe.
+- **Operacje w miejscu:** Kiedy `x += 1` oszczędza pamięć, a kiedy psuje Autograd.
 
-### 🧮 Module 2: Autograd Internals (The Engine)
+### 🧮 Moduł 2: Wnętrze Autogradu (Silnik)
 
-_Hacking the derivative engine._
+_Hakowanie silnika pochodnych._
 
-- **Computational Graph:** Visualizing dynamic graph construction.
-- **`retain_graph=True`:** Use cases beyond the basics.
-- **Custom Autograd Functions:** Writing manual `forward` and `backward` methods.
-- **Gradient Accumulation:** Simulating large batches on small VRAM.
+- **Graf Obliczeniowy:** Wizualizacja dynamicznej konstrukcji grafu.
+- **`retain_graph=True`:** Przypadki użycia wykraczające poza podstawy.
+- **Niestandardowe Funkcje Autogradu:** Pisanie własnych metod `forward` i `backward`.
+- **Akumulacja Gradientów:** Symulowanie dużych batch'y na małym VRAM.
 
-### 💿 Module 3: Data Engineering (Fuel)
+### 💿 Moduł 3: Inżynieria Danych (Paliwo)
 
-_Garbage In, Garbage Out. Slow In, Slow Training._
+_Śmieci na wejściu, śmieci na wyjściu. Wolne wejście, wolny trening._
 
-- **IterableDataset:** Handling streams and datasets larger than RAM.
-- **Custom Collate:** Managing variable-length sequences and padding on the fly.
-- **Advanced Sampling:** Balancing imbalanced datasets dynamically.
-- **Bottleneck Analysis:** Optimizing `num_workers`, `pin_memory`, and prefetching.
+- **IterableDataset:** Obsługa strumieni i zbiorów danych większych niż RAM.
+- **Niestandardowy Collate:** Zarządzanie sekwencjami o zmiennej długości i padding w locie.
+- **Zaawansowane Próbkowanie:** Dynamiczne balansowanie niezbalansowanych zbiorów danych.
+- **Analiza Wąskich Gardeł:** Optymalizacja `num_workers`, `pin_memory` i prefetchingu.
 
-### 🧠 Module 4: Advanced Architecture (Construction)
+### 🧠 Moduł 4: Zaawansowana Architektura (Konstrukcja)
 
-_Building robust and complex systems._
+_Budowanie solidnych i złożonych systemów._
 
-- **Hooks:** Inspecting activations and gradients inside the black box.
-- **Initialization Strategies:** Why Xavier and Kaiming matter for convergence.
-- **Weight Sharing:** Tying parameters between layers (e.g., Autoencoders).
-- **Dynamic Control Flow:** Using Python logic (`if/else`) inside the graph.
+- **Hooki:** Inspekcja aktywacji i gradientów wewnątrz czarnej skrzynki.
+- **Strategie Inicjalizacji:** Dlaczego Xavier i Kaiming mają znaczenie dla zbieżności.
+- **Współdzielenie Wag:** Wiązanie parametrów między warstwami (np. Autokodery).
+- **Dynamiczny Przepływ Sterowania:** Używanie logiki Pythona (`if/else`) wewnątrz grafu.
 
-### ⚡ Module 5: Training & Optimization (Speed)
+### ⚡ Moduł 5: Trening i Optymalizacja (Szybkość)
 
-_Squeezing every FLOPS out of your GPU._
+_Wyciskanie każdego FLOPS-a z twojego GPU._
 
-- **Mixed Precision (AMP):** implementing `fp16` for 2x speedup.
-- **Schedulers:** Warmup, Cosine Annealing, and Cyclic Learning Rates.
-- **Gradient Clipping:** Preventing exploding gradients in RNNs/Transformers.
-- **Torch 2.0:** Mastering `torch.compile` and fusion strategies.
+- **Mieszana Precyzja (AMP):** Implementacja `fp16` dla 2x przyspieszenia.
+- **Schedulery:** Rozgrzewka, Cosine Annealing i Cykliczne Tempo Uczenia.
+- **Przycinanie Gradientów:** Zapobieganie eksplodującym gradientom w RNN/Transformerach.
+- **Torch 2.0:** Opanowanie `torch.compile` i strategii fuzji.
 
-### 📦 Module 6: Ecosystem & Production (Scale)
+### 📦 Moduł 6: Ekosystem i Produkcja (Skala)
 
-_Moving from notebook to cluster._
+_Przejście z notebooka do klastra._
 
-- **PyTorch Lightning:** Structuring code for reproducibility.
-- **TorchScript & Tracing:** Exporting models to C++ environments.
-- **DDP (Distributed Data Parallel):** Multi-GPU training mechanics.
-- **Profiling:** Using PyTorch Profiler to find code bottlenecks.
+- **PyTorch Lightning:** Strukturyzowanie kodu dla powtarzalności.
+- **TorchScript i Tracing:** Eksportowanie modeli do środowisk C++.
+- **DDP (Distributed Data Parallel):** Mechanika treningu na wielu GPU.
+- **Profilowanie:** Używanie PyTorch Profiler do znajdowania wąskich gardeł w kodzie.
 
-## 🛠️ Tech Stack & Tools
+## 🛠️ Stos Technologiczny i Narzędzia
 
-This project focuses on the modern, high-performance PyTorch ecosystem:
+Ten projekt koncentruje się na nowoczesnym, wydajnym ekosystemie PyTorch:
 
 - **Python 3.10+**
-- **PyTorch 2.x** (Core framework, focusing on `torch.compile` and dynamic graphs)
-- **Einops** (Readable and powerful tensor operations)
-- **PyTorch Lightning** (Organizing complex training pipelines)
-- **Torch Profiler & TensorBoard** (Performance debugging)
-- **NumPy & Pandas** (Data manipulation)
-- **Matplotlib & Seaborn** (Visualizing internals and loss landscapes)
+- **PyTorch 2.x** (Główny framework, koncentracja na `torch.compile` i dynamicznych grafach)
+- **Einops** (Czytelne i potężne operacje tensorowe)
+- **PyTorch Lightning** (Organizacja złożonych potoków treningowych)
+- **Torch Profiler i TensorBoard** (Debugowanie wydajności)
+- **NumPy i Pandas** (Manipulacja danymi)
+- **Matplotlib i Seaborn** (Wizualizacja wnętrz i krajobrazów strat)
 
-## 🚀 How to Use
+## 🚀 Jak Używać
 
-You have two options: instant cloud execution or a professional local setup.
+Masz dwie opcje: natychmiastowe wykonanie w chmurze lub profesjonalną konfigurację lokalną.
 
-### ☁️ Option 1: Google Colab (Zero Setup)
+### ☁️ Opcja 1: Google Colab (Zero Konfiguracji)
 
-The fastest way to learn. Every notebook in this repository has an **"Open in Colab"** badge at the top.
+Najszybszy sposób na naukę. Każdy notebook w tym repozytorium ma przycisk **"Open in Colab"** na górze.
 
-1.  Open any `.ipynb` file in the file list.
-2.  Click the <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="vertical-align: middle"> badge.
-3.  The code runs immediately on Google's free GPUs.
+1.  Otwórz dowolny plik `.ipynb` z listy plików.
+2.  Kliknij przycisk <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="vertical-align: middle">.
+3.  Kod uruchamia się natychmiast na darmowych GPU Google.
 
-### 💻 Option 2: Local Development (VS Code + uv)
+### 💻 Opcja 2: Rozwój Lokalny (VS Code + uv)
 
-Recommended for engineers building their own experimental environment.
+Zalecane dla inżynierów budujących własne środowisko eksperymentalne.
 
-1.  **Clone the repository:**
+1.  **Sklonuj repozytorium:**
 
     ```bash
     git clone https://github.com/takzen/pytorch-black-belt.git
     cd pytorch-black-belt
     ```
 
-2.  **Initialize environment with `uv`:**
+2.  **Zainicjalizuj środowisko z `uv`:**
 
     ```bash
-    # Create virtual environment
+    # Utwórz wirtualne środowisko
     uv venv
 
-    # Activate it:
+    # Aktywuj je:
     # Windows:
     .venv\Scripts\activate
     # Linux/Mac:
     source .venv/bin/activate
     ```
 
-3.  **Install Dependencies (The Engineering Stack):**
+3.  **Zainstaluj Zależności (Stos Inżynierski):**
 
     ```bash
-    # 1. Install PyTorch with CUDA support (Adjust index-url for your GPU)
+    # 1. Zainstaluj PyTorch ze wsparciem CUDA (Dostosuj index-url dla twojego GPU)
     uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 
-    # 2. Install Tools (Einops, Profilers, Visualization)
+    # 2. Zainstaluj Narzędzia (Einops, Profilery, Wizualizacja)
     uv pip install numpy pandas matplotlib seaborn einops lightning tensorboard torch-tb-profiler jupyterlab ipywidgets
     ```
 
 ---
 
-## 📊 Project Stats
+## 📊 Statystyki Projektu
 
-- **101 Notebooks** focusing purely on PyTorch internals and engineering.
-- **From Math to Production:** From manual backpropagation implementation to distributed training (DDP).
-- **6 Deep Dive Modules:** Tensors, Autograd, Data Engineering, Architecture, Optimization, Production.
-- **Reference Implementations:** Custom CUDA kernels, Memory-efficient Attention, Gradient Checkpointing.
-- **Modern PyTorch 2.0:** Leveraging `torch.compile` and Fusion strategies.
+- **Kompleksowy program nauczania** skupiający się wyłącznie na wewnętrznych mechanizmach PyTorch i inżynierii.
+- **Od Matematyki do Produkcji:** Od ręcznej implementacji propagacji wstecznej do treningu rozproszonego (DDP).
+- **6 Modułów Głębokiego Zanurzenia:** Tensory, Autograd, Inżynieria Danych, Architektura, Optymalizacja, Produkcja.
+- **Implementacje Referencyjne:** Niestandardowe kernele CUDA, Memory-efficient Attention, Gradient Checkpointing.
+- **Nowoczesny PyTorch 2.0:** Wykorzystanie `torch.compile` i strategii fuzji.
 
 ---
 
-**Author:** Krzysztof Pika
+**Autor:** Krzysztof Pika
