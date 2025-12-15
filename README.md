@@ -123,7 +123,7 @@ Zalecane dla inżynierów budujących własne środowisko eksperymentalne.
 
     ```bash
     # 1. Zainstaluj PyTorch ze wsparciem CUDA (Dostosuj index-url dla twojego GPU)
-    uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+    uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 
     # 2. Zainstaluj Narzędzia (Einops, Profilery, Wizualizacja)
     uv pip install numpy pandas matplotlib seaborn einops lightning tensorboard torch-tb-profiler jupyterlab ipywidgets
