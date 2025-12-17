@@ -12,3 +12,4 @@ wheels/
 # Others
 .env
 GEMINI.md
+add_badges.py
