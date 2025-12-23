@@ -13,3 +13,4 @@ wheels/
 .env
 GEMINI.md
 add_badges.py
+data_wds/
