@@ -106,27 +106,55 @@ Zalecane dla inżynierów budujących własne środowisko eksperymentalne.
     cd pytorch-black-belt
     ```
 
-2.  **Zainicjalizuj środowisko z `uv`:**
+2.  **Zainstaluj zależności za pomocą uv:**
 
     ```bash
-    # Utwórz wirtualne środowisko
-    uv venv
+    # Tworzy venv i instaluje wszystkie biblioteki z uv.lock
+    uv sync
+    ```
 
-    # Aktywuj je:
+    Środowisko zostanie automatycznie skonfigurowane z dokładnymi wersjami bibliotek (PyTorch z CUDA, Scikit-Learn, Transformers itp.), co gwarantuje powtarzalność wyników.
+
+3.  **Aktywuj środowisko:**
+
+    ```bash
     # Windows:
-    .venv\Scripts\activate
+    .\.venv\Scripts\activate
     # Linux/Mac:
     source .venv/bin/activate
     ```
 
-3.  **Zainstaluj Zależności (Stos Inżynierski):**
+4.  **Uruchom Jupyter Notebook:**
 
     ```bash
-    # 1. Zainstaluj PyTorch ze wsparciem CUDA (Dostosuj index-url dla twojego GPU)
-    uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+    jupyter notebook
+    ```
 
-    # 2. Zainstaluj Narzędzia (Einops, Profilery, Wizualizacja)
-    uv pip install numpy pandas matplotlib seaborn einops lightning tensorboard torch-tb-profiler jupyterlab ipywidgets
+    _(Wskazówka: Jeśli używasz VS Code, po prostu otwórz plik `.ipynb` i wybierz kernel `.venv` w prawym górnym rogu)._
+
+---
+
+### ⚙️ Dostosowanie wersji CUDA (Rozwiązywanie problemów)
+
+Domyślna konfiguracja projektu (`uv.lock`) wymusza instalację PyTorch z obsługą **CUDA 13.0**. Jeśli posiadasz starszą kartę graficzną lub chcesz uruchomić projekt na samym CPU (np. macOS), musisz nadpisać te ustawienia.
+
+**Jak zmienić wersję?**
+
+1.  Otwórz plik `pyproject.toml`.
+2.  W sekcjach `[[tool.uv.index]]` oraz `[tool.uv.sources]` zamień końcówkę adresu URL oraz nazwę indeksu na wybraną wersję (np. `cu126`):
+
+    | Wersja                   | URL Indeksu (`url`)                      | Wymagany sterownik NVIDIA |
+    | :----------------------- | :--------------------------------------- | :------------------------ |
+    | **CUDA 13.0** (Domyślny) | `https://download.pytorch.org/whl/cu130` | **≥ 575.xx**              |
+    | **CUDA 12.6** (Stabilny) | `https://download.pytorch.org/whl/cu126` | ≥ 560.xx                  |
+    | **CUDA 12.4** (Legacy)   | `https://download.pytorch.org/whl/cu124` | ≥ 550.xx                  |
+    | **CPU** (Brak GPU/Mac)   | `https://download.pytorch.org/whl/cpu`   | Brak                      |
+
+3.  Zaktualizuj środowisko:
+
+    ```bash
+    # uv wykryje zmianę w pliku konfiguracyjnym i przebuduje uv.lock
+    uv sync
     ```
 
 ---
