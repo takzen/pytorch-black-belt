@@ -136,24 +136,23 @@ Recommended for engineers building their own experimental environment.
 
 ### ⚙️ Customizing CUDA Version (Troubleshooting)
 
-The default project configuration (`uv.lock`) enforces a PyTorch installation with **CUDA 13.0** support. If you have an older NVIDIA GPU or want to run the project on CPU only (e.g., macOS), you must override these settings.
+The project is configured for the latest **CUDA 13.0** drivers. These settings are located at the very bottom of the `pyproject.toml` file. If you have an older GPU or use macOS (CPU only), you need to change them.
 
 **How to change the version?**
 
-1.  Open the `pyproject.toml` file.
-2.  In the `[[tool.uv.index]]` and `[tool.uv.sources]` sections, replace the URL suffix and the index name with your desired version (e.g., `cu126`):
+1.  Open `pyproject.toml`.
+2.  Find the `[[tool.uv.index]]` section at the end of the file.
+3.  Replace the URL (`url`) and name (`name/index`) according to the table:
 
-    | Version                 | Index URL (`url`)                        | Required NVIDIA Driver |
-    | :---------------------- | :--------------------------------------- | :--------------------- |
-    | **CUDA 13.0** (Default) | `https://download.pytorch.org/whl/cu130` | **≥ 575.xx**           |
-    | **CUDA 12.6** (Stable)  | `https://download.pytorch.org/whl/cu126` | ≥ 560.xx               |
-    | **CUDA 12.4** (Legacy)  | `https://download.pytorch.org/whl/cu124` | ≥ 550.xx               |
-    | **CPU** (No GPU/Mac)    | `https://download.pytorch.org/whl/cpu`   | None                   |
+    | Version       | URL to use                               | Compatibility                    |
+    | :------------ | :--------------------------------------- | :------------------------------- |
+    | **CUDA 13.0** | `https://download.pytorch.org/whl/cu130` | RTX 30xx/40xx/50xx (New drivers) |
+    | **CUDA 12.6** | `https://download.pytorch.org/whl/cu126` | Most GPUs (Stable)               |
+    | **CUDA 12.4** | `https://download.pytorch.org/whl/cu124` | Older systems                    |
+    | **CPU (Mac)** | `https://download.pytorch.org/whl/cpu`   | MacBook M1/M2/M3 / No GPU        |
 
-3.  Update the environment:
-
+4.  After editing, run:
     ```bash
-    # uv will detect the config change and rebuild uv.lock automatically
     uv sync
     ```
 
