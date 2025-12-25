@@ -5,12 +5,60 @@ description = "The road to engineering mastery. A deep-dive guide into PyTorch m
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "ipykernel>=7.1.0",
-    "lightning>=2.6.0",
-    "tensorboard>=2.20.0",
+    # --- Core Data Science & Math ---
+    "numpy",
+    "pandas",
+    "scipy",
+    "statsmodels",
+
+    # --- Visualization ---
+    "matplotlib",
+    "seaborn",
+
+    # --- Classical ML & Explainability ---
+    "scikit-learn",
+    "xgboost",
+    "mlxtend",
+    "shap",
+    "optuna",
+
+    # --- Deep Learning Core (PyTorch Ecosystem) ---
     "torch",
-    "torchaudio",
     "torchvision",
+    "torchaudio",
+    "lightning",
+    "torchmetrics",
+    "torchviz",
+    "kornia",  # Augmentacja na GPU
+
+    # --- NLP, LLM & RAG ---
+    "transformers",
+    "tiktoken",
+    "openai",
+    "ragas",
+    "datasets",
+    "langchain",
+    "langchain-core",
+    "langchain-google-genai",
+
+    # --- Deployment, Formats & Big Data ---
+    "onnx",
+    "onnxruntime",
+    "onnxscript",
+    "webdataset",
+    "joblib",
+
+    # --- Reinforcement Learning & Graphs ---
+    "gymnasium",
+    "networkx",
+
+    # --- Utilities & Jupyter Environment ---
+    "ipykernel",
+    "notebook",
+    "ipywidgets",
+    "python-dotenv",
+    "nest_asyncio",
+    "tqdm"
 ]
 
 [[tool.uv.index]]

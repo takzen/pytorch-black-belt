@@ -16,3 +16,4 @@ add_badges.py
 data_wds/
 clean_badges.py
 moj_eksperyment/
+fix_colab_cells.py
