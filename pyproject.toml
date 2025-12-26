@@ -10,18 +10,15 @@ dependencies = [
     "pandas",
     "scipy",
     "statsmodels",
-
     # --- Visualization ---
     "matplotlib",
     "seaborn",
-
     # --- Classical ML & Explainability ---
     "scikit-learn",
     "xgboost",
     "mlxtend",
     "shap",
     "optuna",
-
     # --- Deep Learning Core (PyTorch Ecosystem) ---
     "torch",
     "torchvision",
@@ -29,8 +26,7 @@ dependencies = [
     "lightning",
     "torchmetrics",
     "torchviz",
-    "kornia",  # Augmentacja na GPU
-
+    "kornia", # Augmentacja na GPU
     # --- NLP, LLM & RAG ---
     "transformers",
     "tiktoken",
@@ -40,25 +36,23 @@ dependencies = [
     "langchain",
     "langchain-core",
     "langchain-google-genai",
-
     # --- Deployment, Formats & Big Data ---
     "onnx",
     "onnxruntime",
     "onnxscript",
     "webdataset",
     "joblib",
-
     # --- Reinforcement Learning & Graphs ---
     "gymnasium",
     "networkx",
-
     # --- Utilities & Jupyter Environment ---
     "ipykernel",
     "notebook",
     "ipywidgets",
     "python-dotenv",
     "nest_asyncio",
-    "tqdm"
+    "tqdm",
+    "higher>=0.2.1",
 ]
 
 [[tool.uv.index]]
